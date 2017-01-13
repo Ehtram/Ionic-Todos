@@ -17,17 +17,17 @@ export class AddTodoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, storage: Storage) {
     this.newTodo = this.formBuilder.group({
       name: ['', Validators.required],
-      description: [''],
+      description: ['',Validators.maxLength(300)],
     });
 
     this.myStorage = storage;
   }
 
   addTodo() {
-    //this.navCtrl.pop();
     this.myStorage.set(this.newTodo.value.name,{
       name: this.newTodo.value.name,
-      description: this.newTodo.value.description
+      description: this.newTodo.value.description,
+      done: false,
     }).then(() => {
       if(this.navCtrl.getPrevious)
       {

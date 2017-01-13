@@ -22,7 +22,7 @@ export class ListPage {
   ionViewWillEnter() {
     this.items = new Array<Todo>();
     this.myStorage.forEach( (value: any, key: string, index: number) => {
-      this.ajouterTodo({name: value.name, description: value.description, done: false});
+      this.ajouterTodo({name: value.name, description: value.description, done: value.done || false});
     });
   }
 
@@ -30,7 +30,29 @@ export class ListPage {
     this.navCtrl.push(TodoDetailsPage,{
       name: item.name,
       description: item.description,
+      done: item.done
+    });
+  }
+
+  checkItem(item) {
+    item.done = true;
+    this.myStorage.set(item.name,{
+      name: item.name,
+      description: item.description,
+      done: true
+    }).then(() => {
+      console.log("Item Updated in db");
+    });
+  }
+
+  uncheckItem(item){
+    item.done = false;
+    this.myStorage.set(item.name,{
+      name: item.name,
+      description: item.description,
       done: false
+    }).then(() => {
+      console.log("Item Updated in db");
     });
   }
 

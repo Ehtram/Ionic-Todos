@@ -11,7 +11,7 @@ export class TodoDetailsPage {
   currentItem: Todo;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
-    this.currentItem = {name: navParams.get('name'), description: navParams.get('description'), done: false}
+    this.currentItem = {name: navParams.get('name'), description: navParams.get('description'), done: navParams.get('done')}
     console.log(this.currentItem);
   }
 
