@@ -6,13 +6,15 @@ import { MyApp } from './app.component';
 import { InfoComponent } from './../pages/Info-page/info-page';
 import { ListPage } from './../pages/list-page/list-page';
 import { AddTodoPage } from './../pages/add-todo/add-todo';
+import { TodoDetailsPage } from './../pages/todo-details/todo-details';
 
 @NgModule({
   declarations: [
     MyApp,
     InfoComponent,
     ListPage,
-    AddTodoPage
+    AddTodoPage,
+    TodoDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -22,7 +24,8 @@ import { AddTodoPage } from './../pages/add-todo/add-todo';
     MyApp,
     InfoComponent,
     ListPage,
-    AddTodoPage
+    AddTodoPage,
+    TodoDetailsPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

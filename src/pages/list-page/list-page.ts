@@ -1,3 +1,4 @@
+import { TodoDetailsPage } from './../todo-details/todo-details';
 import { AddTodoPage } from './../add-todo/add-todo';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, NavController, NavParams } from 'ionic-angular';
@@ -15,13 +16,21 @@ export class ListPage {
   myStorage: Storage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage) {
-    this.items = new Array<Todo>();
     this.myStorage = storage;
   }
 
   ionViewWillEnter() {
+    this.items = new Array<Todo>();
     this.myStorage.forEach( (value: any, key: string, index: number) => {
       this.ajouterTodo({name: value.name, description: value.description, done: false});
+    });
+  }
+
+  gotToDetails(item) {
+    this.navCtrl.push(TodoDetailsPage,{
+      name: item.name,
+      description: item.description,
+      done: false
     });
   }
 
@@ -43,6 +52,7 @@ export class ListPage {
   clearDb() {
     this.myStorage.clear().then(() => {
       console.warn("Database has been cleared !");
+      this.ionViewWillEnter(); // Force the UI to refresh and pull from the db
     });
   }
 
