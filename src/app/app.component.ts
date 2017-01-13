@@ -1,13 +1,11 @@
-import { AddTodoPage } from './../pages/add-todo/add-todo';
-import { InfoComponent } from './../pages/Info-page/info-page';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
 import { ListPage } from './../pages/list-page/list-page';
+import { AddTodoPage } from './../pages/add-todo/add-todo';
+import { InfoComponent } from './../pages/Info-page/info-page';
 
 
 @Component({
@@ -16,7 +14,7 @@ import { ListPage } from './../pages/list-page/list-page';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = ListPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -25,11 +23,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },
-      { title:'Info', component: InfoComponent},
-      { title: 'Todo List', component: ListPage},
-      { title:'Add Todo', component: AddTodoPage}
+      { title: 'Info', component: InfoComponent},
+      { title: 'Todo List', component: ListPage}
     ];
 
     storage.set('author','Quentin');
