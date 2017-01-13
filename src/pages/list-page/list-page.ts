@@ -23,22 +23,27 @@ export class ListPage {
     });
   }
 
-
   ionViewDidLoad() {
     //console.log('ionViewDidLoad ListPagePage');
   }
 
+  /**
+   * Delete an item from the local todo list,
+   * and delete it from the db if it works
+   */
   deleteItem(item) {
     var index = this.items.indexOf(item, 0);
     if (index > -1) {
-      this.items.splice(index, 1);
+      if(this.items.splice(index, 1)) {
+        // The item have been suppressed
+        this.myStorage.remove(item.name);
+      }
     }
     //delete this.items[this.items.indexOf(item)];
   }
 
   addTodo() {
     this.navCtrl.push(AddTodoPage);
-    //this.nav.setRoot(AddTodoPage);
   }
 
   /**
