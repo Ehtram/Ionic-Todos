@@ -13,6 +13,7 @@ export class ListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.items = new Array<Todo>();
     this.ajouterTodo({name: "Super", description: "aldjazkdjzald", done: false});
+    this.ajouterTodo({name: "Cours ", description: "Suivre Cours de POO", done: false});
   }
 
   ajouterTodo(todo : Todo) {
@@ -20,7 +21,14 @@ export class ListPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListPagePage');
+    //console.log('ionViewDidLoad ListPagePage');
   }
 
+  deleteItem(item) {
+    var index = this.items.indexOf(item, 0);
+    if (index > -1) {
+      this.items.splice(index, 1);
+    }
+    //delete this.items[this.items.indexOf(item)];
+  }
 }
