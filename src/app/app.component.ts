@@ -1,3 +1,4 @@
+import { AddTodoPage } from './../pages/add-todo/add-todo';
 import { InfoComponent } from './../pages/Info-page/info-page';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -26,7 +27,8 @@ export class MyApp {
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
       { title:'Info', component: InfoComponent},
-      { title: 'Todo List', component: ListPage}
+      { title: 'Todo List', component: ListPage},
+      { title:'Add Todo', component: AddTodoPage}
     ];
 
   }

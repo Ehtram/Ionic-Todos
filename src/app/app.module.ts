@@ -1,3 +1,4 @@
+import { AddTodoPage } from './../pages/add-todo/add-todo';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
@@ -13,7 +14,8 @@ import { ListPage } from './../pages/list-page/list-page';
     Page1,
     Page2,
     InfoComponent,
-    ListPage
+    ListPage,
+    AddTodoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +26,8 @@ import { ListPage } from './../pages/list-page/list-page';
     Page1,
     Page2,
     InfoComponent,
-    ListPage
+    ListPage,
+    AddTodoPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

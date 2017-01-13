@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AddTodo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="newTodo" (ngSubmit)="addTodo()">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>
+ <!-- <div padding>
+    <button ion-button color="primary" >Add</button>
+  </div>
+  -->
+    <ion-fab right bottom>
+      <button ion-fab color="primary" type="submit" [disabled]="!newTodo.valid">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </form>
+</ion-content>
