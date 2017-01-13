@@ -2,12 +2,16 @@
 
 =============
 
-- [x] Done
- 	- [x] Model definition
-	- [x] List definition
-	- [x] Basic interface
-	- [x] Delete Item
-- [ ] Need to be done
-	- [ ] Persistance (SQLite ? )
-	- [ ] Create an item
-	- [ ] Modify an item
+- Checklist
+- [x] Model definition
+- [x] List definition
+- [x] Basic interface
+- [x] Delete Item
+- [x] Persistance
+- [x] Create an item
+- [ ] Modify an item
+- [ ] Possibility to check to put as done
+- [ ] Sort by done or not
+- [ ] Add a possible date and a reminder
+- [ ] Add a possible location
+- [ ] If location, why not Geolocalisation
