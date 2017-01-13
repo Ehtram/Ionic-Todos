@@ -29,7 +29,10 @@ export class AddTodoPage {
       name: this.newTodo.value.name,
       description: this.newTodo.value.description
     }).then(() => {
-      this.navCtrl.pop();
+      if(this.navCtrl.getPrevious)
+      {
+        this.navCtrl.pop();
+      }
     });
   }
 

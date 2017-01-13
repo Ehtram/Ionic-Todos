@@ -40,6 +40,12 @@ export class ListPage {
     //delete this.items[this.items.indexOf(item)];
   }
 
+  clearDb() {
+    this.myStorage.clear().then(() => {
+      console.warn("Database has been cleared !");
+    });
+  }
+
   addTodo() {
     this.navCtrl.push(AddTodoPage);
   }
