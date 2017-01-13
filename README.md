@@ -11,4 +11,3 @@
 	- [ ] Persistance (SQLite ? )
 	- [ ] Create an item
 	- [ ] Modify an item
-	- 
