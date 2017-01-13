@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 import { Todo } from './../../app/model/todo.model';
 
@@ -10,16 +11,26 @@ import { Todo } from './../../app/model/todo.model';
 })
 export class AddTodoPage {
   //newTodo : Todo;
-  newTodo: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  newTodo: FormGroup;
+  myStorage: Storage;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, storage: Storage) {
     this.newTodo = this.formBuilder.group({
       name: ['', Validators.required],
       description: [''],
     });
+
+    this.myStorage = storage;
   }
 
   addTodo() {
     //this.navCtrl.pop();
+    this.myStorage.set(this.newTodo.value.name,{
+      name: this.newTodo.value.name,
+      description: this.newTodo.value.description
+    }).then(() => {
+      this.navCtrl.pop();
+    });
   }
 
   ionViewDidLoad() {

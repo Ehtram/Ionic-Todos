@@ -3,6 +3,7 @@ import { InfoComponent } from './../pages/Info-page/info-page';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Storage } from '@ionic/storage';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
@@ -19,7 +20,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -31,6 +32,7 @@ export class MyApp {
       { title:'Add Todo', component: AddTodoPage}
     ];
 
+    storage.set('author','Quentin');
   }
 
   initializeApp() {

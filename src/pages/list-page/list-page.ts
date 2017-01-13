@@ -1,6 +1,7 @@
 import { AddTodoPage } from './../add-todo/add-todo';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { Todo } from './../../app/model/todo.model';
 
@@ -11,11 +12,15 @@ import { Todo } from './../../app/model/todo.model';
 export class ListPage {
   @ViewChild(Nav) nav: Nav;
   items: Todo[];
+  myStorage: Storage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage) {
     this.items = new Array<Todo>();
-    this.ajouterTodo({name: "Super", description: "aldjazkdjzald", done: false});
-    this.ajouterTodo({name: "Cours ", description: "Suivre Cours de POO", done: false});
+    this.myStorage = storage;
+
+    this.myStorage.forEach( (value: any, key: string, index: number) => {
+      this.ajouterTodo({name: value.name, description: value.description, done: false});
+    });
   }
 
 
