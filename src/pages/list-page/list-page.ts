@@ -17,14 +17,12 @@ export class ListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage) {
     this.items = new Array<Todo>();
     this.myStorage = storage;
+  }
 
+  ionViewWillEnter() {
     this.myStorage.forEach( (value: any, key: string, index: number) => {
       this.ajouterTodo({name: value.name, description: value.description, done: false});
     });
-  }
-
-  ionViewDidLoad() {
-    //console.log('ionViewDidLoad ListPagePage');
   }
 
   /**
