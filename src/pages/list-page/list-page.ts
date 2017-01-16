@@ -22,7 +22,8 @@ export class ListPage {
   ionViewWillEnter() {
     this.items = new Array<Todo>();
     this.myStorage.forEach( (value: any, key: string, index: number) => {
-      this.ajouterTodo({name: value.name, description: value.description, done: value.done || false});
+      if (value.name)
+        this.ajouterTodo({name: value.name, description: value.description, done: value.done, categorie: value.categorie });
     });
   }
 
@@ -30,7 +31,8 @@ export class ListPage {
     this.navCtrl.push(TodoDetailsPage,{
       name: item.name,
       description: item.description,
-      done: item.done
+      done: item.done,
+      categorie: item.categorie,
     });
   }
 
@@ -39,7 +41,8 @@ export class ListPage {
     this.myStorage.set(item.name,{
       name: item.name,
       description: item.description,
-      done: true
+      done: true,
+      categorie: item.categorie
     }).then(() => {
       console.log("Item Updated in db");
     });
@@ -50,7 +53,8 @@ export class ListPage {
     this.myStorage.set(item.name,{
       name: item.name,
       description: item.description,
-      done: false
+      done: false,
+      categorie: item.categorie
     }).then(() => {
       console.log("Item Updated in db");
     });

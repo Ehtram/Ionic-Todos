@@ -7,15 +7,13 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-item>
-    <ion-label>Name: </ion-label>
-    <ion-label>{{currentItem.name}}</ion-label>
+  <ion-item text-wrap>
+    <b>Name: </b> {{currentItem.name}}
   </ion-item>
-  <ion-item>
-    <ion-label>Description: </ion-label>
-    <ion-label>{{currentItem.description}}</ion-label>
+  <ion-item text-wrap>
+    Description:
+    <b>{{currentItem.description}}</b>
   </ion-item>
   <ion-item>
     <ion-label>Done</ion-label>

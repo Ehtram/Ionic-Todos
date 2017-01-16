@@ -4,7 +4,6 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import { ListPage } from './../pages/list-page/list-page';
-import { AddTodoPage } from './../pages/add-todo/add-todo';
 import { InfoComponent } from './../pages/Info-page/info-page';
 
 
@@ -23,11 +22,16 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Info', component: InfoComponent},
-      { title: 'Todo List', component: ListPage}
+      { title: 'Todo List', component: ListPage},
+      { title: 'Info', component: InfoComponent}
     ];
 
     storage.set('author','Quentin');
+    storage.set('categories',[
+      "General",
+      "Travail",
+      "Loisirs"
+    ]);
   }
 
   initializeApp() {

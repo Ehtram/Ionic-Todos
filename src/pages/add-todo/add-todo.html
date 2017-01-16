@@ -17,6 +17,11 @@
       <ion-label floating>Description</ion-label>
       <ion-textarea type="text" formControlName="description"></ion-textarea>
     </ion-item>
+    <ion-item>
+      <ion-select formControlName="categorie" >
+        <ion-option [value]="myCategories.indexOf(categorie)" *ngFor="let categorie of myCategories" >{{categorie}}</ion-option>
+      </ion-select>
+    </ion-item>
  <!-- <div padding>
     <button ion-button color="primary" >Add</button>
   </div>
