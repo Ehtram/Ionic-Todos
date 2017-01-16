@@ -1,11 +1,8 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>AddTodo</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <form [formGroup]="newTodo" (ngSubmit)="addTodo()">
@@ -18,7 +15,7 @@
       <ion-textarea type="text" formControlName="description"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-select formControlName="categorie" >
+      <ion-select formControlName="categorie">
         <ion-option [value]="myCategories.indexOf(categorie)" *ngFor="let categorie of myCategories" >{{categorie}}</ion-option>
       </ion-select>
     </ion-item>

@@ -1,3 +1,4 @@
+import { FilterTodoPage } from './../pages/filter-todo/filter-todo';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -14,7 +15,8 @@ import { TodoDetailsPage } from './../pages/todo-details/todo-details';
     InfoComponent,
     ListPage,
     AddTodoPage,
-    TodoDetailsPage
+    TodoDetailsPage,
+    FilterTodoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +27,8 @@ import { TodoDetailsPage } from './../pages/todo-details/todo-details';
     InfoComponent,
     ListPage,
     AddTodoPage,
-    TodoDetailsPage
+    TodoDetailsPage,
+    FilterTodoPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

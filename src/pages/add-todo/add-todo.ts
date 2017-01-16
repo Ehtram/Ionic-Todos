@@ -28,7 +28,7 @@ export class AddTodoPage {
       name: this.newTodo.value.name,
       description: this.newTodo.value.description,
       done: false,
-      categorie: this.newTodo.value.categorie,
+      categorie: this.myCategories[this.newTodo.value.categorie],
     }).then(() => {
       console.log(this.newTodo);
 

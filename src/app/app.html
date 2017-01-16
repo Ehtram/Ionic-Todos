@@ -10,6 +10,9 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <button menuClose ion-item *ngFor="let categorie of myCategories" (click)=openPage(categorie)>
+        {{categorie}}
+      </button>
     </ion-list>
   </ion-content>
 
